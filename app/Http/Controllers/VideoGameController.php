@@ -17,7 +17,7 @@ class VideoGameController extends Controller
 
     public function store(Request $request){
         
-        $fecha = Carbon::createFromFormat('m/d/Y', $request->get('publication_date'));
+        $fecha = Carbon::createFromFormat('m-d-Y', $request->get('publication_date'));
 
         $newVideoGame = new VideoGame([
         'name' => $request->get('name'),
@@ -43,7 +43,7 @@ class VideoGameController extends Controller
 
         $videoGame = VideoGame::findOrFail($id);
 
-        $fecha = Carbon::createFromFormat('m/d/Y', $request->get('publication_date'));
+        $fecha = Carbon::createFromFormat('m-d-Y', $request->get('publication_date'));
 
         $videoGame->name = $request->get('name');
         $videoGame->publication_date = $fecha;

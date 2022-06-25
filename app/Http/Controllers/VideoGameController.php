@@ -43,7 +43,7 @@ class VideoGameController extends Controller
 
         $videoGame = VideoGame::findOrFail($id);
 
-        $fecha = Carbon::createFromFormat('m-d-Y', $request->get('publication_date'));
+        $fecha = Carbon::createFromFormat('Y-m-d', $request->get('publication_date'));
 
         $videoGame->name = $request->get('name');
         $videoGame->publication_date = $fecha;

@@ -20,4 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 */
 
-Route::apiResource('videogames', VideoGameController::class);
+
+Route::group(['middleware' => ['cors']], function () {
+    Route::apiResource('videogames', VideoGameController::class);
+});
+

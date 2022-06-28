@@ -15,7 +15,8 @@ class VideoGame extends Model
         'name',
         'publication_date',
         'created_by',
-        'updated_by'
+        'updated_by',
+        'user_id'
     ];
 
     protected $attributes = [

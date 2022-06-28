@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VideoGameController;
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,5 +24,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['middleware' => ['cors']], function () {
     Route::apiResource('videogames', VideoGameController::class);
+    
+    Route::prefix('auth')->group(function(){
+        Route::post('/sign-in', [AuthController::class, 'login']);
+        Route::post('/sign-up', [AuthController::class, 'register']);
+    });
+
 });
 

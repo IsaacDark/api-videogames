@@ -114,7 +114,7 @@ class VideoGameController extends Controller
 
             $videoGame->save();
 
-            return response()->json($videoGame, 200);
+            return new VideoGameResource($videoGame, 200);
             
         }catch(Exception $e){
             return response()->json(['error' => 'error del servidor'], 500);

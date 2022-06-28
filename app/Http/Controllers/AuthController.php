@@ -32,7 +32,7 @@ class AuthController extends Controller
     
             $newUser->save();
 
-            return response()->json(['data' => $userFound->email], 200);
+            return response()->json(['data' => $newUser->email], 200);
         }catch(Exception $e){
             return response()->json(['error' => 'error al registrarse'], 500);
         }
